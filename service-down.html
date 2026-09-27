@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IT Diagnostics | FAIL</title><style>
+:root{color-scheme:light;--ink:#17313c;--muted:#516670;--line:#dce5e8;--bg:#f3f7f8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1120px;margin:auto;padding:42px 30px 30px}.eyebrow{font-size:12px;letter-spacing:.16em;font-weight:750;text-transform:uppercase}
+header{display:flex;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line);padding-bottom:26px}
+h1{font-size:40px;line-height:1.12;letter-spacing:-.04em;margin:12px 0}h2{font-size:21px;margin:0 0 8px}h3{font-size:16px;margin:0}
+p{margin:6px 0}.muted{color:var(--muted)}.badge{display:inline-block;font-size:12px;letter-spacing:.03em;font-weight:800;border-radius:6px;padding:5px 10px;white-space:nowrap}
+.OK{background:#e1f1ea;color:#176748}.WARNING{background:#fff0ce;color:#835503}.FAIL{background:#fbe6e4;color:#a33229}.SKIP{background:#e8eef1;color:#4d626d}
+.hero-status{text-align:right;min-width:160px;padding-top:5px}.hero-status .badge{font-size:15px}.notice{padding:12px 16px;background:#e5eef8;border:1px solid #c9dbed;border-radius:8px;margin:24px 0 0}
+.counts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:24px 0}.count{background:white;border:1px solid var(--line);border-radius:10px;padding:16px 20px}.number{font-size:32px;font-weight:750;line-height:1.2;margin-bottom:8px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 265px;gap:24px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:10px;padding:20px}
+.check{border:1px solid var(--line);border-radius:10px;background:white;padding:18px 20px;margin:12px 0}.check-head{display:flex;justify-content:space-between;align-items:start;gap:15px}.category{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px}
+.recommendation{margin-top:12px;padding-top:11px;border-top:1px solid #edf1f2;font-size:14px}.recommendation strong{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#52646e;margin-bottom:4px}
+details{margin-top:12px;font-size:13px}summary{cursor:pointer;color:#246777;font-weight:650}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f7f8;padding:12px;border-radius:6px;font-size:12px}
+dl{margin:14px 0 0}dt{color:var(--muted);font-size:12px;margin-top:12px}dd{margin:2px 0 0;font-weight:600;overflow-wrap:anywhere}.filters{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
+button{cursor:pointer;border:1px solid #cbd8dc;background:white;color:var(--ink);padding:6px 12px;border-radius:20px;font:inherit;font-size:12px}button[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}button:focus-visible{outline:3px solid #4099ab;outline-offset:2px}
+footer{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}[hidden]{display:none!important}
+@media(max-width:760px){main{padding:22px 16px}.layout{grid-template-columns:1fr}.counts{grid-template-columns:repeat(2,1fr)}h1{font-size:30px}header{display:block}.hero-status{text-align:left;margin-top:16px}aside{order:-1}}
+@media print{body{background:white}main{padding:0}.filters{display:none}.layout{display:block}.check{break-inside:avoid}aside{margin-top:20px}.check[hidden]{display:block!important}}
+</style></head><body><main>
+<header><div><div class="eyebrow">IT Diagnostics Toolkit / v0.1.0</div>
+<h1>System health snapshot</h1><p class="muted">Evidence, findings and practical next steps for IT support.</p></div>
+<div class="hero-status"><div class="eyebrow">Overall result</div><p><span class="badge FAIL">FAIL</span></p>
+<p class="muted">7 checks recorded</p></div></header><div class="notice"><strong>DEMO / SYNTHETIC DATA</strong> &nbsp; Fictional scenario. No measurements or network requests were made.</div>
+<section class="counts" aria-label="Check totals"><div class="count"><div class="number">6</div><span class="badge OK">OK</span></div><div class="count"><div class="number">0</div><span class="badge WARNING">WARNING</span></div><div class="count"><div class="number">1</div><span class="badge FAIL">FAIL</span></div><div class="count"><div class="number">0</div><span class="badge SKIP">SKIP</span></div></section>
+<div class="layout"><section><h2>Diagnostic findings</h2><p class="muted">Failures and warnings appear first. SKIP means unverified.</p>
+<nav class="filters" aria-label="Filter findings"><button type="button" data-filter="ALL" aria-pressed="true">ALL</button><button type="button" data-filter="OK" aria-pressed="false">OK</button><button type="button" data-filter="WARNING" aria-pressed="false">WARNING</button><button type="button" data-filter="FAIL" aria-pressed="false">FAIL</button><button type="button" data-filter="SKIP" aria-pressed="false">SKIP</button></nav><div id="findings"><article class="check" data-status="FAIL">
+<div class="check-head"><div><div class="category">Services</div><h3>Service: demo-agent.service</h3></div>
+<span class="badge FAIL">FAIL</span></div><p>Current state: inactive (simulated).</p>
+<div class="recommendation"><strong>Next step</strong>Confirm the service should be running. Inspect service logs and dependencies before an authorized restart, then check application behavior.</div>
+<details><summary>Technical evidence</summary><pre>{
+  &quot;name&quot;: &quot;demo-agent.service&quot;,
+  &quot;state&quot;: &quot;inactive&quot;
+}</pre></details></article><article class="check" data-status="OK">
+<div class="check-head"><div><div class="category">Resources</div><h3>CPU utilization</h3></div>
+<span class="badge OK">OK</span></div><p>18.4% utilization</p>
+<div class="recommendation"><strong>Next step</strong>No action required for this sample.</div>
+<details><summary>Technical evidence</summary><pre>{
+  &quot;percent&quot;: 18.4,
+  &quot;sample_seconds&quot;: 0.5,
+  &quot;warning_at&quot;: 85,
+  &quot;fail_at&quot;: 95
+}</pre></details></article><article class="check" data-status="OK">
+<div class="check-head"><div><div class="category">Resources</div><h3>Memory utilization</h3></div>
+<span class="badge OK">OK</span></div><p>42.0% utilization</p>
+<div class="recommendation"><strong>Next step</strong>No action required for this sample.</div>
+<details><summary>Technical evidence</summary><pre>{
+  &quot;percent&quot;: 42.0,
+  &quot;total_bytes&quot;: 17179869184,
+  &quot;available_bytes&quot;: 9964324127,
+  &quot;warning_at&quot;: 80,
+  &quot;fail_at&quot;: 95
+}</pre></details></article><article class="check" data-status="OK">
+<div class="check-head"><div><div class="category">Resources</div><h3>Disk space: /</h3></div>
+<span class="badge OK">OK</span></div><p>36.0% utilization</p>
+<div class="recommendation"><strong>Next step</strong>No action required for this sample.</div>
+<details><summary>Technical evidence</summary><pre>{
+  &quot;path&quot;: &quot;/&quot;,
+  &quot;percent&quot;: 36.0,
+  &quot;total_bytes&quot;: 536870912000,
+  &quot;free_bytes&quot;: 343597383680,
+  &quot;warning_at&quot;: 80,
+  &quot;fail_at&quot;: 90
+}</pre></details></article><article class="check" data-status="OK">
+<div class="check-head"><div><div class="category">Network</div><h3>Network interfaces</h3></div>
+<span class="badge OK">OK</span></div><p>1 of 1 interfaces is up.</p>
+<div class="recommendation"><strong>Next step</strong>Link state alone does not establish Internet access.</div>
+<details><summary>Technical evidence</summary><pre>{
+  &quot;interfaces&quot;: {
+    &quot;eth0&quot;: {
+      &quot;is_up&quot;: true,
+      &quot;speed_mbps&quot;: 1000,
+      &quot;mtu&quot;: 1500
+    }
+  }
+}</pre></details></article><article class="check" data-status="OK">
+<div class="check-head"><div><div class="category">Network</div><h3>DNS: support.example.test</h3></div>
+<span class="badge OK">OK</span></div><p>Name resolution succeeded (simulated).</p>
+<div class="recommendation"><strong>Next step</strong>Resolution success does not prove application availability.</div>
+<details><summary>Technical evidence</summary><pre>{
+  &quot;host&quot;: &quot;support.example.test&quot;,
+  &quot;elapsed_ms&quot;: 12.1
+}</pre></details></article><article class="check" data-status="OK">
+<div class="check-head"><div><div class="category">Network</div><h3>TCP: support.example.test:443</h3></div>
+<span class="badge OK">OK</span></div><p>TCP connection established (simulated).</p>
+<div class="recommendation"><strong>Next step</strong>TCP success does not validate HTTP or TLS.</div>
+<details><summary>Technical evidence</summary><pre>{
+  &quot;host&quot;: &quot;support.example.test&quot;,
+  &quot;port&quot;: 443,
+  &quot;elapsed_ms&quot;: 23.8
+}</pre></details></article></div>
+<p id="empty" class="muted" hidden>No findings match this filter.</p></section>
+<aside class="panel"><h2>System context</h2><dl><dt>Report time (UTC)</dt><dd>2026-09-27T09:00:00+00:00</dd>
+<dt>Mode</dt><dd>demo:service-down</dd><dt>Os</dt><dd>Linux (fictional demo)</dd><dt>Os release</dt><dd>demo</dd><dt>Architecture</dt><dd>x86_64</dd><dt>Logical cpus</dt><dd>8</dd><dt>Physical cpus</dt><dd>4</dd><dt>Uptime seconds</dt><dd>86400</dd><dt>Hostname collected</dt><dd>False</dd><dt>Ip addresses collected</dt><dd>False</dd></dl></aside></div>
+<footer>Read-only diagnostics: no settings changed, services restarted or files deleted. Only report files are written.
+An OK result applies only to completed checks; it is not a hardware certification or a guarantee of application health.
+Review live reports before sharing: configured paths, destinations and service names may be sensitive.</footer>
+</main><script>
+document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
+ const filter = button.dataset.filter;
+ document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+ let visible = 0;
+ document.querySelectorAll('[data-status]').forEach(card => {
+   card.hidden = filter !== 'ALL' && card.dataset.status !== filter;
+   if (!card.hidden) visible++;
+ });
+ document.getElementById('empty').hidden = visible > 0;
+}));
+</script></body></html>

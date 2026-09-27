@@ -1,0 +1,6 @@
+{
+  "timeout_seconds": 3,
+  "dns_hosts": ["example.com"],
+  "tcp_targets": [{"host": "example.com", "port": 443}],
+  "services": []
+}

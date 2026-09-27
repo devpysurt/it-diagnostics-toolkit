@@ -1,0 +1,13 @@
+{
+  "cpu_sample_seconds": 0.5,
+  "timeout_seconds": 3,
+  "thresholds": {
+    "cpu": {"warning": 85, "fail": 95},
+    "memory": {"warning": 80, "fail": 95},
+    "disk": {"warning": 80, "fail": 90}
+  },
+  "disk_paths": ["."],
+  "dns_hosts": [],
+  "tcp_targets": [],
+  "services": []
+}

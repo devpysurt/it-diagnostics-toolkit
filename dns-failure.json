@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-27T09:00:00+00:00",
+  "mode": "demo:dns-failure",
+  "inventory": {
+    "os": "Linux (fictional demo)",
+    "os_release": "demo",
+    "architecture": "x86_64",
+    "logical_cpus": 8,
+    "physical_cpus": 4,
+    "uptime_seconds": 86400,
+    "hostname_collected": false,
+    "ip_addresses_collected": false
+  },
+  "checks": [
+    {
+      "id": "cpu",
+      "category": "Resources",
+      "title": "CPU utilization",
+      "status": "OK",
+      "summary": "18.4% utilization",
+      "recommendation": "No action required for this sample.",
+      "evidence": {
+        "percent": 18.4,
+        "sample_seconds": 0.5,
+        "warning_at": 85,
+        "fail_at": 95
+      }
+    },
+    {
+      "id": "memory",
+      "category": "Resources",
+      "title": "Memory utilization",
+      "status": "OK",
+      "summary": "42.0% utilization",
+      "recommendation": "No action required for this sample.",
+      "evidence": {
+        "percent": 42.0,
+        "total_bytes": 17179869184,
+        "available_bytes": 9964324127,
+        "warning_at": 80,
+        "fail_at": 95
+      }
+    },
+    {
+      "id": "disk.0",
+      "category": "Resources",
+      "title": "Disk space: /",
+      "status": "OK",
+      "summary": "36.0% utilization",
+      "recommendation": "No action required for this sample.",
+      "evidence": {
+        "path": "/",
+        "percent": 36.0,
+        "total_bytes": 536870912000,
+        "free_bytes": 343597383680,
+        "warning_at": 80,
+        "fail_at": 90
+      }
+    },
+    {
+      "id": "interfaces",
+      "category": "Network",
+      "title": "Network interfaces",
+      "status": "OK",
+      "summary": "1 of 1 interfaces is up.",
+      "recommendation": "Link state alone does not establish Internet access.",
+      "evidence": {
+        "interfaces": {
+          "eth0": {
+            "is_up": true,
+            "speed_mbps": 1000,
+            "mtu": 1500
+          }
+        }
+      }
+    },
+    {
+      "id": "dns.0",
+      "category": "Network",
+      "title": "DNS: support.example.test",
+      "status": "FAIL",
+      "summary": "Name resolution failed (simulated).",
+      "recommendation": "Verify the hostname, resolver configuration and VPN. Compare with a known-good hostname before attributing the failure to DNS infrastructure.",
+      "evidence": {
+        "host": "support.example.test",
+        "stage": "dns",
+        "error": "gaierror"
+      }
+    },
+    {
+      "id": "tcp.0",
+      "category": "Network",
+      "title": "TCP: support.example.test:443",
+      "status": "FAIL",
+      "summary": "TCP probe could not resolve the destination (simulated).",
+      "recommendation": "Resolve the name lookup issue, then repeat the TCP probe. No TCP connection was attempted in this scenario.",
+      "evidence": {
+        "host": "support.example.test",
+        "port": 443,
+        "stage": "dns",
+        "error": "gaierror"
+      }
+    },
+    {
+      "id": "service.0",
+      "category": "Services",
+      "title": "Service: demo-agent.service",
+      "status": "OK",
+      "summary": "Current state: active (simulated).",
+      "recommendation": "Service state does not establish application health.",
+      "evidence": {
+        "name": "demo-agent.service",
+        "state": "active"
+      }
+    }
+  ],
+  "tool_version": "0.1.0",
+  "overall_status": "FAIL",
+  "counts": {
+    "OK": 5,
+    "WARNING": 0,
+    "FAIL": 2,
+    "SKIP": 0
+  },
+  "coverage": "complete"
+}

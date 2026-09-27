@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "it-diagnostics-toolkit"
+version = "0.1.0"
+description = "Read-only workstation diagnostics with actionable HTML and JSON reports."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Stanislav Delov"}]
+dependencies = ["psutil>=5.9.8,<8"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: System :: Monitoring",
+  "Environment :: Console",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+itdiag = "it_diagnostics.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

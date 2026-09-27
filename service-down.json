@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-27T09:00:00+00:00",
+  "mode": "demo:service-down",
+  "inventory": {
+    "os": "Linux (fictional demo)",
+    "os_release": "demo",
+    "architecture": "x86_64",
+    "logical_cpus": 8,
+    "physical_cpus": 4,
+    "uptime_seconds": 86400,
+    "hostname_collected": false,
+    "ip_addresses_collected": false
+  },
+  "checks": [
+    {
+      "id": "cpu",
+      "category": "Resources",
+      "title": "CPU utilization",
+      "status": "OK",
+      "summary": "18.4% utilization",
+      "recommendation": "No action required for this sample.",
+      "evidence": {
+        "percent": 18.4,
+        "sample_seconds": 0.5,
+        "warning_at": 85,
+        "fail_at": 95
+      }
+    },
+    {
+      "id": "memory",
+      "category": "Resources",
+      "title": "Memory utilization",
+      "status": "OK",
+      "summary": "42.0% utilization",
+      "recommendation": "No action required for this sample.",
+      "evidence": {
+        "percent": 42.0,
+        "total_bytes": 17179869184,
+        "available_bytes": 9964324127,
+        "warning_at": 80,
+        "fail_at": 95
+      }
+    },
+    {
+      "id": "disk.0",
+      "category": "Resources",
+      "title": "Disk space: /",
+      "status": "OK",
+      "summary": "36.0% utilization",
+      "recommendation": "No action required for this sample.",
+      "evidence": {
+        "path": "/",
+        "percent": 36.0,
+        "total_bytes": 536870912000,
+        "free_bytes": 343597383680,
+        "warning_at": 80,
+        "fail_at": 90
+      }
+    },
+    {
+      "id": "interfaces",
+      "category": "Network",
+      "title": "Network interfaces",
+      "status": "OK",
+      "summary": "1 of 1 interfaces is up.",
+      "recommendation": "Link state alone does not establish Internet access.",
+      "evidence": {
+        "interfaces": {
+          "eth0": {
+            "is_up": true,
+            "speed_mbps": 1000,
+            "mtu": 1500
+          }
+        }
+      }
+    },
+    {
+      "id": "dns.0",
+      "category": "Network",
+      "title": "DNS: support.example.test",
+      "status": "OK",
+      "summary": "Name resolution succeeded (simulated).",
+      "recommendation": "Resolution success does not prove application availability.",
+      "evidence": {
+        "host": "support.example.test",
+        "elapsed_ms": 12.1
+      }
+    },
+    {
+      "id": "tcp.0",
+      "category": "Network",
+      "title": "TCP: support.example.test:443",
+      "status": "OK",
+      "summary": "TCP connection established (simulated).",
+      "recommendation": "TCP success does not validate HTTP or TLS.",
+      "evidence": {
+        "host": "support.example.test",
+        "port": 443,
+        "elapsed_ms": 23.8
+      }
+    },
+    {
+      "id": "service.0",
+      "category": "Services",
+      "title": "Service: demo-agent.service",
+      "status": "FAIL",
+      "summary": "Current state: inactive (simulated).",
+      "recommendation": "Confirm the service should be running. Inspect service logs and dependencies before an authorized restart, then check application behavior.",
+      "evidence": {
+        "name": "demo-agent.service",
+        "state": "inactive"
+      }
+    }
+  ],
+  "tool_version": "0.1.0",
+  "overall_status": "FAIL",
+  "counts": {
+    "OK": 6,
+    "WARNING": 0,
+    "FAIL": 1,
+    "SKIP": 0
+  },
+  "coverage": "complete"
+}
